@@ -74,7 +74,8 @@ p {
 }
 
 .section-title {
-  font-size: clamp(26px, 4vw, 38px);
+  font-size: clamp(28px, 4.8vw, 80px);
+  line-height: 1.05;
   text-transform: uppercase;
   margin-bottom: 36px;
 }
@@ -360,10 +361,62 @@ section {
    ABOUT
    ========================================================================== */
 
+.about {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+.about-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: scale(1.02);
+}
+
+.about-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(13,13,13,0.92) 0%, rgba(13,13,13,0.78) 45%, rgba(13,13,13,0.55) 100%);
+}
+
 .about-grid {
+  position: relative;
+  z-index: 1;
   display: grid;
   gap: 36px;
   align-items: center;
+}
+
+.about-text {
+  max-width: 640px;
+}
+
+.about .eyebrow,
+.about .section-title,
+.about .section-text {
+  position: relative;
+  z-index: 1;
+}
+
+.about .section-title {
+  color: var(--color-white);
+  margin-bottom: 24px;
+}
+
+.about .eyebrow {
+  color: var(--color-red);
+  margin-bottom: 12px;
+}
+
+.about .section-text {
+  color: var(--color-gray-100);
+  margin-bottom: 24px;
+  font-size: 16px;
+  line-height: 1.8;
 }
 
 .about-media img {
@@ -374,9 +427,27 @@ section {
   aspect-ratio: 16/11;
 }
 
-.about-text p {
-  margin-bottom: 24px;
-  font-size: 16px;
+@media (max-width: 767px) {
+  .about {
+    padding: 72px 0;
+  }
+
+  .about-grid {
+    gap: 24px;
+  }
+
+  .about-text {
+    max-width: none;
+  }
+
+  .about .section-title {
+    margin-bottom: 16px;
+  }
+
+  .about .section-text {
+    font-size: 15px;
+    line-height: 1.7;
+  }
 }
 
 /* ==========================================================================
